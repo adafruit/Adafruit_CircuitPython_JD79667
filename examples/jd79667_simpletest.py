@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: Unlicense
 
-"""Simple test script for 2.9" 296x128 display. This example runs it in mono mode."""
+"""Simple test script for 3.52" 340x180 Quad-Color eInk."""
 
 import time
 
@@ -16,7 +16,6 @@ import adafruit_jd79667
 
 displayio.release_displays()
 
-# This pinout works on a MagTag with the newer screen and may need to be altered for other boards.
 spi = busio.SPI(board.EPD_SCK, board.EPD_MOSI)  # Uses SCK and MOSI
 epd_cs = board.EPD_CS
 epd_dc = board.EPD_DC
