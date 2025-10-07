@@ -36,19 +36,10 @@ This is easily achieved by downloading
 or individual libraries can be installed using
 `circup <https://github.com/adafruit/circup>`_.
 
-
-
-.. todo:: Describe the Adafruit product this library works with. For PCBs, you can also add the
-image from the assets folder in the PCB's GitHub repo.
-
 `Purchase one from the Adafruit shop <http://www.adafruit.com/products/6373>`_
 
 Installing from PyPI
 =====================
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
-
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
 
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-jd79667/>`_.
@@ -99,8 +90,36 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+.. code-block:: python
+
+    import board
+    import busio
+    import displayio
+    from fourwire import FourWire
+
+    import adafruit_jd79667
+
+    displayio.release_displays()
+
+    spi = busio.SPI(board.EPD_SCK, board.EPD_MOSI)  # Uses SCK and MOSI
+    epd_cs = board.EPD_CS
+    epd_dc = board.EPD_DC
+    epd_reset = board.EPD_RESET
+    epd_busy = board.EPD_BUSY
+
+    display_bus = FourWire(spi, command=epd_dc, chip_select=epd_cs, reset=epd_reset, baudrate=1000000)
+    time.sleep(1)
+
+    display = adafruit_jd79667.JD79667(
+        display_bus,
+        width=384,
+        height=184,
+        busy_pin=epd_busy,
+        rotation=270,
+        colstart=0,
+        highlight_color=0xFFFF00,
+        highlight_color2=0xFF0000,
+    )
 
 Documentation
 =============

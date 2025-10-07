@@ -22,16 +22,9 @@ Table of Contents
     api
 
 .. toctree::
-    :caption: Tutorials
-
-.. todo:: Add any Learn guide links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
-
-.. toctree::
     :caption: Related Products
 
-.. todo:: Add any product links here. If there are none, then simply delete this todo and leave
-    the toctree above for use later.
+    Adafruit 3.52" 340x180 Quad-Color eInk <https://www.adafruit.com/product/6414>
 
 .. toctree::
     :caption: Other Links
